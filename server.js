@@ -15,15 +15,17 @@ forward_config = {
     '🚀trades' : {cid: 1506696037, active: true},
     '💨woods' : {cid: 1535952240, active: true},
     '🎯eli' : {cid: 1232766699, active: true},
-    '🧿astekz' : {cid: 1506696037, active: false}
+    '🧿astekz' : {cid: 1307525437, active: true},
+    '🌟rising-stars' :  {cid: 1582835705, active: true},
+    '🐯tahervag' :  {cid: 1587863461, active: true}
 }
 
 const  eventPrint = (client) => async (event) => {
     const message = event.message;
-    console.log("🚀 ~ file: index.js ~ line 24 ~ eventPrint ~ message.peerId?.channelId", message.peerId?.channelId)
+    // console.log("🚀 ~ file: index.js ~ line 24 ~ eventPrint ~ message.peerId?.channelId", message.peerId?.channelId)
     if (message.peerId?.channelId === 1209521283) {
         const walsh_channel = message.message.split('\n', 1)[0];
-        console.log("🚀 ~ file: index.js ~ line 23 ~ eventPrint ~ walsh_channel", walsh_channel.substring(0))
+        // console.log("🚀 ~ file: index.js ~ line 23 ~ eventPrint ~ walsh_channel", walsh_channel.substring(0))
         if(typeof forward_config[walsh_channel.substring(0)] !== 'undefined' && forward_config[walsh_channel.substring(0)].active){
             await client.sendMessage(new Api.PeerChannel({ channelId: forward_config[walsh_channel.substring(0)].cid }),{
                 message: message.message
@@ -33,19 +35,12 @@ const  eventPrint = (client) => async (event) => {
 }
 
 (async () => {
-
   console.log("Loading interactive example...");
-
   const client = new TelegramClient(stringSession, apiId, apiHash, {
     connectionRetries: 5,
   });
-
   client.addEventHandler(eventPrint(client), new NewMessage({}));
-
   await client.start({
     onError: (err) => console.log(err),
   });
-
-  // await client.sendMessage('me', { message: 'Hello!' });
-
 })();
