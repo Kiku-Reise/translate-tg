@@ -35,7 +35,7 @@ const  eventPrint = (client) => async (event) => {
 }
 
 (async () => {
-  console.log("Loading interactive example...");
+  console.log("TG CHANNEL CUSTOM FORWARDER");
   const client = new TelegramClient(stringSession, apiId, apiHash, {
     connectionRetries: 5,
   });
