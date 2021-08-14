@@ -22,10 +22,10 @@ forward_config = {
 
 const  eventPrint = (client) => async (event) => {
     const message = event.message;
-    // console.log("🚀 ~ file: index.js ~ line 24 ~ eventPrint ~ message.peerId?.channelId", message.peerId?.channelId)
+    console.log("MSG FROM CHANNEL: ", message.peerId?.channelId)
     if (message.peerId?.channelId === 1209521283) {
         const walsh_channel = message.message.split('\n', 1)[0];
-        // console.log("🚀 ~ file: index.js ~ line 23 ~ eventPrint ~ walsh_channel", walsh_channel.substring(0))
+        console.log("MSG FROM WALSH CHANNEL: ", walsh_channel.substring(0))
         if(typeof forward_config[walsh_channel.substring(0)] !== 'undefined' && forward_config[walsh_channel.substring(0)].active){
             await client.sendMessage(new Api.PeerChannel({ channelId: forward_config[walsh_channel.substring(0)].cid }),{
                 message: message.message
