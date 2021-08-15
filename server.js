@@ -16,8 +16,8 @@ randomId = () => {
 }
 
 forward_config = {
-  '1212786466' : {cid: 1597458594}, // philipines
-  '1565773584' : {cid: 1597458594} //test
+  '1212786466' : {cid: 1277753274}, // philipines
+  '1161735479' : {cid: 1558625455} //the crypto
 }
 
 const  eventPrint = (client) => async (event) => {
@@ -29,13 +29,13 @@ const  eventPrint = (client) => async (event) => {
         new Api.messages.SendMedia({
           peer: new Api.PeerChannel({ channelId: forward_config[`${message.peerId?.channelId}`].cid  }),
           media: message.media,
-          message: message.message,
+          message: "Auto translate: \n\n" + (await translate(message.message, {to: 'en'})).text,
           randomId: randomId(),
         })
       );
     }else{
       await client.sendMessage(new Api.PeerChannel({ channelId: forward_config[`${message.peerId?.channelId}`].cid }),{
-        message: (await translate(message.message, {to: 'en'})).text,
+        message: "Auto translate: \n\n" + (await translate(message.message, {to: 'en'})).text,
       });
     }
   }
