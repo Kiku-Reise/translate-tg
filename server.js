@@ -10,6 +10,8 @@ const stringSession = new StringSession(
   "1BVtsOLQBuyGi-h9i1q1unB-AO6fdVjpSG5FD1WGE4E13A8jhtuDjljKruMcgsvGWNf1IHtx-BeFxjVsogyuuOXTzoOPxxkdV00D6IF-zcNHOUzbU_qQ9g_7QmwCWZ5e56ty6KPO2zfJBB06WswV8G-GjhMbyLxLIVDkKRvcmtNrZ1HqZdKTpLDwVFd8pMnDM4b3QHarYjvIkGm8yccqiLGWoOK0w0EQi0bozOLv9XO6wENCDKr-5z-ekOSMouOc4eRY08T9rKadqUvk1jOV5Qit5VhzzSPKUtxvWyFt0OtPNEWBwNLi-rukYv10Gk71hqVXFexsPPsvf3TY5GTli30u2TGu-Txw="
 ); // fill this later with the value from session.save()
 
+const WALS_WEALTH_CHANNEL_ID = 1209521283
+
 forward_config = {
     '👑johnny' : {cid: 1295969078, active: true},
     '🚀trades' : {cid: 1506696037, active: true},
@@ -23,7 +25,7 @@ forward_config = {
 const  eventPrint = (client) => async (event) => {
     const message = event.message;
     console.log("MSG FROM CHANNEL: ", message.peerId?.channelId)
-    if (message.peerId?.channelId === 1209521283) {
+    if (message.peerId?.channelId === WALS_WEALTH_CHANNEL_ID) {
         const walsh_channel = message.message.split('\n', 1)[0];
         console.log("MSG FROM WALSH CHANNEL: ", walsh_channel.substring(0))
         if(typeof forward_config[walsh_channel.substring(0)] !== 'undefined' && forward_config[walsh_channel.substring(0)].active){
