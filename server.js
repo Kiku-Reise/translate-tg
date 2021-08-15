@@ -1,5 +1,3 @@
-const axios = require("axios");
-
 const { Api, TelegramClient } = require("telegram");
 const { StringSession } = require("telegram/sessions");
 const { NewMessage } = require("telegram/events");
