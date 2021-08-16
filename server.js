@@ -24,20 +24,20 @@ const  eventPrint = (client) => async (event) => {
   const message = event.message;
   console.log("MSG FROM CHANNEL: ", message.peerId?.channelId)
   if (forward_config[`${message.peerId?.channelId}`]) {
-    if (message.media) {
-      const result = client.invoke(
-        new Api.messages.SendMedia({
-          peer: new Api.PeerChannel({ channelId: forward_config[`${message.peerId?.channelId}`].cid  }),
-          media: message.media,
-          message: "Auto translate: \n\n" + (await translate(message.message, {to: 'en'})).text,
-          randomId: randomId(),
-        })
-      );
-    }else{
+    // if (message.media) {
+      // const result = client.invoke(
+      //   new Api.messages.SendMedia({
+      //     peer: new Api.PeerChannel({ channelId: forward_config[`${message.peerId?.channelId}`].cid  }),
+      //     media: message.media,
+      //     message: "Auto translate: \n\n" + (await translate(message.message, {to: 'en'})).text,
+      //     randomId: randomId(),
+      //   })
+      // );
+    // }else{
       client.sendMessage(new Api.PeerChannel({ channelId: forward_config[`${message.peerId?.channelId}`].cid }),{
         message: "Auto translate: \n\n" + (await translate(message.message, {to: 'en'})).text,
       });
-    }
+    // }
   }
 }
 
