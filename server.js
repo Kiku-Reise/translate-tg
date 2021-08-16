@@ -2,6 +2,7 @@ const { Api, TelegramClient } = require("telegram");
 const { StringSession } = require("telegram/sessions");
 const { NewMessage } = require("telegram/events");
 const translate = require('@vitalets/google-translate-api');
+const { Logger } = require("telegram/extensions");
 
 const apiId = 7444397;
 const apiHash = "4383298978b7f1c5c4d91b084c700e38";
@@ -45,6 +46,7 @@ const  eventPrint = (client) => async (event) => {
   console.log("TG CHANNEL CUSTOM FORWARDER");
   const client = new TelegramClient(stringSession, apiId, apiHash, {
     connectionRetries: 5,
+    baseLogger: new Logger('warn')
   });
   client.addEventHandler(eventPrint(client), new NewMessage({}));
   await client.start({
