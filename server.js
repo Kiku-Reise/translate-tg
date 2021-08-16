@@ -23,7 +23,7 @@ forward_config = {
 
 const  eventPrint = (client) => async (event) => {
   const message = event.message;
-  console.log("MSG FROM CHANNEL: ", message.peerId?.channelId)
+  // console.log("MSG FROM CHANNEL: ", message.peerId?.channelId)
   if (forward_config[`${message.peerId?.channelId}`]) {
     // if (message.media) {
       // const result = client.invoke(
