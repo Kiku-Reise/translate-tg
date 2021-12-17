@@ -4,10 +4,10 @@ const { NewMessage } = require("telegram/events");
 const translate = require('@vitalets/google-translate-api');
 const { Logger } = require("telegram/extensions");
 
-const apiId = 7444397;
-const apiHash = "4383298978b7f1c5c4d91b084c700e38";
+const apiId = ;
+const apiHash = "";
 const stringSession = new StringSession(
-  "1BVtsOLQBuyGi-h9i1q1unB-AO6fdVjpSG5FD1WGE4E13A8jhtuDjljKruMcgsvGWNf1IHtx-BeFxjVsogyuuOXTzoOPxxkdV00D6IF-zcNHOUzbU_qQ9g_7QmwCWZ5e56ty6KPO2zfJBB06WswV8G-GjhMbyLxLIVDkKRvcmtNrZ1HqZdKTpLDwVFd8pMnDM4b3QHarYjvIkGm8yccqiLGWoOK0w0EQi0bozOLv9XO6wENCDKr-5z-ekOSMouOc4eRY08T9rKadqUvk1jOV5Qit5VhzzSPKUtxvWyFt0OtPNEWBwNLi-rukYv10Gk71hqVXFexsPPsvf3TY5GTli30u2TGu-Txw="
+  ""
 ); // fill this later with the value from session.save()
 
 const BigInt = require("big-integer");
